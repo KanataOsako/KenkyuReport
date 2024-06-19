@@ -1,0 +1,25 @@
+・ngrokで外部公開する方法
+1.
+C:\tool\ngrok-v3-stable-windows-amd64
+└ngrok.exe
+を起動する
+→コマンドプロンプトが起動する
+
+2.
+ngrok http --region=jp 192.168.100.58:8000     
+上記を入力する
+
+・slackAPIの設定
+1.
+https://api.slack.com/apps/A07850UR1U6/event-subscriptions?
+上記をブラウザで表示
+Enable Eventsの Request URLにngrokで外部公開したURLを入力
+
+2.
+https://api.slack.com/apps/A07850UR1U6/install-on-team?
+上記をブラウザで表示
+Installed App SettingsのReinstall to Workspaceで再インストールさせる
+
+・pythonのモジュールをインストールするとき
+C:\Users\kanat>
+上記の場所でpipコマンドを使用すること

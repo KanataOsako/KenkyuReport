@@ -2,6 +2,8 @@ import flask
 from flask import request, Response
 import os
 import json
+import slackweb
+import post_slack_bk
 
 app = flask.Flask(__name__)
 
@@ -22,8 +24,14 @@ def index():
             print("user = ", event["user"])
         if "text" in event:
             print("text = ", event["text"])
-    return Response("nothing", mimetype='text/plane')
+        if "type" in event:
+            print("type = ", event["type"])
+        if "channel" in event:
+            print("channel = ", event["channel"])
+        slack = slackweb.Slack(url="")
+        slack.notify(text="成功")
 
+    return Response("nothing", mimetype='text/plane')
 
 port = os.getenv('VCAP_APP_PORT', '8000')
 
